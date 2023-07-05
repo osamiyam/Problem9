@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title> Problem 9 </title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./prob9pweb.js"></script>
+    <script>
+      var names = [".e1", ".e2", ".e3", ".e4", ".e5"]
+      function mydisplay(ss, msg){
+        function getdata(k1, k2){
+          var s = ""
+          for (var i = k1; i < k2; i++){
+	    s += ss[i]
+          }  			       
+          return s
+         }
+        for (var i = 0; i < 5; i++) {
+            var s = getdata(i * 3, Math.min((i + 1) * 3, 14))
+	    $(names[i]).val(s)
+         }
+        $(".message").html(msg)
+       }
+      function cdisplay(lst) {
+        for (var i = 0; i < 5; i++) {
+  	     if (lst[i] == 0){
+		// alert(lst[i])	    
+	        $(names[i]).css("background-color", "aqua")
+	     }		    
+	     else
+  	      $(names[i]).css("background-color", "red")
+        }
+      }
+
+      function work() {
+        var txt = $(".myinput").val()
+        workx(txt)
+      }
+      $(function () {
+         $(".mybttn").mouseup(work)
+      })
+    </script>
+    <style>
+      input {font-size: 24pt}
+      .reserved {color: blue; font-weight: bold; }
+      .cmacro {color: green; font-weight: bold; }
+      .keyfunc {color: black; font-weight: bold; text-decoration: underline}
+      .comment {color: red; }
+      pre {font-family: Menlo}
+    </style>
+  </head>
+  <body style="font-size: 20pt">
+    <input type="button" value="compute!" class="mybttn"> 
+    <input type="text" value="34566667779992" class="myinput"> <br>
+    <input type="text" size="3" class="e1" readonly>
+    <input type="text" size="3" class="e2" readonly>
+    <input type="text" size="3" class="e3" readonly>
+    <input type="text" size="3" class="e4" readonly>
+    <input type="text" size="3" class="e5" readonly> <br>
+    <div class="message">
+    </div>
+    
+  </body>
+</html>
+
